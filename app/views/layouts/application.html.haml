@@ -17,5 +17,8 @@
       = link_to "Sign Up", new_user_registration_path, :class => 'navbar-link'
       = link_to "Sign In", new_user_session_path, :class => 'navbar-link'
 
-    .container
-      = yield
+    .container-fluid
+      .row
+        .col-xs-12.col-md-8
+          = yield
+        .col-xs-6.col-md-4

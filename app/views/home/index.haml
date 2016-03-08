@@ -1,2 +1,21 @@
-test
-%button.btn.btn-lg.btn-default TEST Button
+- if current_user
+  %h2 Pools You're Managing
+  %table.table.table-striped
+    %tr
+      %th Pool ID
+      %th Pool Name
+    - @managed_pools.each do |pool|
+      %tr
+        %td= pool.id
+        %td= pool.name
+
+  %h2 Pools You're In
+  %table.table.table-striped
+    %tr
+      %th Pool ID
+      %th Pool Name
+    - @pools.each do |pool|
+      %tr
+        %td= pool.id
+        %td= pool.name
+  %button.btn.btn-lg.btn-default Create Pool
