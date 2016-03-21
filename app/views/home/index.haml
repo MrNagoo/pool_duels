@@ -18,4 +18,15 @@
       %tr
         %td= pool.id
         %td= pool.name
-  %button.btn.btn-lg.btn-default Create Pool
+
+  %h2 Public Pools
+  %table.table.table-striped
+    %tr
+      %th Pool ID
+      %th Pool Name
+    - @public_pools.each do |pool|
+      %tr
+        %td= pool.id
+        %td= pool.name
+  %button.btn.btn-lg.btn-default
+    = link_to "Create Pool", new_pool_path
