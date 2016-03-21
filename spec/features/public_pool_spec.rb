@@ -6,21 +6,15 @@ RSpec.feature "public pool", :type => :feature, js: true do
     user1 = User.create(email: "aaron@aaron.com", password: "password")
     user2 = User.create(email: "chien@chien.com", password: "password")
 
-    login_as("aaron@aaron.com")
-
+    # Aaron create a public pool
+    SessionHelper.login_as("aaron@aaron.com")
     click_button "Create Pool"
-
-    fill_in "Name", :with => "My Public Pool"
-
+    fill_in "Name", :with => "Aaron's Public Pool"
     click_button "Create"
+    SessionHelper.logout
 
-    expect(page).to have_text("My Public Pool")
-  end
-
-  def login_as(email, password="password")
-    visit "/users/sign_in"
-    fill_in "Email", with: email
-    fill_in "Password", with: password
-    click_button "Log in"
+    # Another user chien should see the created public pool
+    SessionHelper.login_as("chien@chien.com")
+    expect(page).to have_text("Aaron's Public Pool")
   end
 end
