@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160329210516) do
+ActiveRecord::Schema.define(version: 20160404030944) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -87,6 +87,14 @@ ActiveRecord::Schema.define(version: 20160329210516) do
     t.datetime "updated_at", null: false
   end
 
+  add_foreign_key "entries", "games"
+  add_foreign_key "entries", "pools"
+  add_foreign_key "entries", "teams"
+  add_foreign_key "entries", "users"
+  add_foreign_key "games", "teams", column: "away_team_id"
+  add_foreign_key "games", "teams", column: "home_team_id"
+  add_foreign_key "games", "teams", column: "winner_team_id"
+  add_foreign_key "games", "weeks"
   add_foreign_key "pool_memberships", "pools"
   add_foreign_key "pool_memberships", "users"
   add_foreign_key "pools", "users", column: "owner_id"
