@@ -5,8 +5,13 @@ Rails.application.routes.draw do
 
   # You can have the root of your site routed with "root"
   resources :pools, except: [:index]
+  resources :teams
+  resources :entries
+  resources :games
   root 'home#index'
 
+  get 'teams/new'
+  post 'teams/create'
   # Example of regular route:
   #   get 'products/:id' => 'catalog#view'
   #

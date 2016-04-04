@@ -12,6 +12,9 @@ class PoolsController < ApplicationController
       redirect_to :new
     end
   end
+  def show
+    @pool = Pool.find(params[:id])
+  end
 
 
   private

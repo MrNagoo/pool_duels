@@ -1,0 +1,5 @@
+<%= simple_form_for @team do |t| %>
+  <%= t.input :name %>
+  <%= t.input_field :won_game?, as: :boolean, label: 'Won Game?' %>
+  <%= t.button :submit %>
+<% end %>

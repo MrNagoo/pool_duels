@@ -3,6 +3,7 @@ class Pool < ActiveRecord::Base
   has_many :pool_memberships
   has_many :members, through: :pool_memberships, source: :user
   after_create :create_owner_pool_membership
+  has_many :entries 
 
   private
 

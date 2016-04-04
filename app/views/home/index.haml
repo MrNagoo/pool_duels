@@ -18,7 +18,8 @@
       %tr
         %td= pool.id
         %td= pool.name
-
+        %button.btn.btn-lg.btn-default
+          = link_to "View Pool", pool_path(pool.id)
   %h2 Public Pools
   %table.table.table-striped
     %tr

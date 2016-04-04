@@ -5,4 +5,5 @@ class User < ActiveRecord::Base
          :recoverable, :rememberable, :trackable, :validatable
   has_many :pool_memberships
   has_many :pools, through: :pool_memberships, source: :pool
+  has_many :entries
 end
