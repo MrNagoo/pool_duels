@@ -4,10 +4,14 @@ Rails.application.routes.draw do
   # See how all your routes lay out with "rake routes".
 
   # You can have the root of your site routed with "root"
-  resources :pools, except: [:index]
+  resources :pools, except: [:index] do
+    resources :entries
+  end
   resources :teams
-  resources :entries
   resources :games
+  namespace :api do
+    resources :entries, only: [:update]
+  end
   root 'home#index'
 
   get 'teams/new'

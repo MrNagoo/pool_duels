@@ -1,0 +1,10 @@
+%table.table.table-striped
+  %tr
+    %th ID
+    %th Home Team
+    %th Away Name
+  - @entries.each do |entry|
+    %tr.entry
+      %td= entry.id
+      %td.team{ data: { id: entry.id, team_id: entry.game.home_team.id }}= entry.game.home_team.name
+      %td.team{ data: { id: entry.id, team_id: entry.game.away_team.id }}= entry.game.away_team.name

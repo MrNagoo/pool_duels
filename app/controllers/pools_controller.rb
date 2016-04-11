@@ -14,6 +14,7 @@ class PoolsController < ApplicationController
   end
   def show
     @pool = Pool.find(params[:id])
+    @users = @pool.members
   end
 
 
