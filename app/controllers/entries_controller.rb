@@ -7,7 +7,7 @@ def index
       pool_id: params[:pool_id],
       game_id: game.id).first_or_create
     if entry.new_record? # Doesn't work yet
-      entry.update_attributes(confidence_order: index)
+      entry.confidence_order: index
     end
   end
 
